@@ -13,10 +13,10 @@ class Voin:
 
     def srt(self):
         swr = Sword("Меч", 10)
-        p3.inventory.append(swr)
-        p3.attack += swr.attack
+        self.inventory.append(swr)
+        self.attack += swr.attack
         print("-------")
-        print("В ваш инвентарь добавился мечь")
+        print(f"В инвентарь {self.name} добавился мечь")
         print("-------")
 
     def visibl(self):
@@ -37,7 +37,8 @@ class Voin:
             print("-------")
             print(f"{self.name} ударил {p1.name} на {damage} жизней!")
             print("-------")
-            
+
+
     def combat_turn2(self):
         if self.hp > 0:
             damage = self.attack
@@ -45,6 +46,7 @@ class Voin:
             print("-------")
             print(f"{self.name} ударил {p3.name} на {damage} жизней!")    
             print("-------")    
+
 
     def fights(self):
         while p3.hp > 0 and p1.hp > 0:
@@ -69,9 +71,9 @@ class Voin:
             print(f"{p1.name} и {p3.name} пали в бою:(")
             print("-------")
 
-class Npc(Voin):
+class Npc(Voin): 
     def __init__(self, name, attack):
-        super().__init__(name, attack)
+        super().__init__(name, attack) 
 
 
 class Sword:
@@ -86,16 +88,18 @@ last_names = ("Ужасный", "Зловонный", "Борзый", "Кров�
 namess = input("Введите имя и нажмите ENTER! ")
 namesf = random.choice(first_names) + " " + random.choice(last_names)      
 
+if not namess:
+    namess = "безымянный"
+
 p3 = Voin(namess, 10)
 p1 = Npc(namesf, random.randint(1, 10))
 
 
 
-p3.srt()
+p1.srt()
 p3.visibl()
 p1.visibl()
+p3.srt()
 p3.fights()
 p3.visibl()
 p1.visibl()
-
-
