@@ -16,7 +16,7 @@ class Voin:
         self.inventory.append(swr)
         self.attack += swr.attack
         print("-------")
-        print(f"В инвентарь {self.name} добавился мечь")
+        print(f"В инвентарь {self.name} добавился меч")
         print("-------")
 
     def visibl(self):
@@ -55,6 +55,8 @@ class Voin:
             print("")
             print(f"{p1.name} {p1.hp}")
             print(f"{p3.name} {p3.hp}")
+            p1.visibl()
+            p3.visibl()
             input("\nНажмите ENTER чтобы сделать следующий ход")
         os.system("cls")
         if p3.hp > 0 and p1.hp <= 0:
@@ -96,7 +98,6 @@ p1 = Npc(namesf, random.randint(1, 10))
 
 
 
-p1.srt()
 p3.visibl()
 p1.visibl()
 p3.srt()
